@@ -111,6 +111,10 @@ cd /c/Users/Thanos/Documents/Stock_Price_Kafka
 - the KafkaProducer.ipynb sets up a Kafka producer that continuously fetches historical stock data and sends it to a Kafka topic (stock-prices-test). Note that in this project the fetch_realtime_data function is not been used because we had first to fetch the historical data. 
 - the KafkaConsumer.ipynb sets up a Kafka consumer that continuously reads messages from the stock-prices-test topic and writes each message as a separate JSON file to Amazon S3.
 
+## Power BI dashboard:
+- Since we do not have access to Power BI Service, we can only export the Power BI dashboard as a png image in the powerbi-dashboard subdirectory of this project.
+- The dashboard provides a comprehensive view of the top-4 companies stock performance over time in the technology sector. It offers key metrics such as closing price, return percentage, volume, and a summary of these metrics across different time periods (Year, Quarter, and Month). You can easily adjust the time range and select for which you want to display data for.
+
 ## License
 
 This project is licensed under the MIT License.
