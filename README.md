@@ -11,6 +11,7 @@ A brief description of your project.
 - [Querying with Athena](#querying-with-athena)
 - [Connecting to EC2 Instance](#connecting-to-ec2-instance)
 - [Produce & Consume Data](#produce--consume-data)
+- [Power BI dashboard](#power-bi-dashboard)
 - [License](#license)
 
 ## Project Overview
