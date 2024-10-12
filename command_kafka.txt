@@ -1,0 +1,66 @@
+
+# Run the stock-market.pem file (after you have created the EC2 instance)
+cd /c/Users/Thanos/Documents/Stock_Price_Kafka
+
+ssh -i "kafka-stock-market.pem" ec2-user@ec2-<EC2-IP-Address>.<Region>.compute.amazonaws.com
+
+# Download dependencies (kafka, java)
+wget https://downloads.apache.org/kafka/3.8.0/kafka_2.13-3.8.0.tgz
+tar -xvf kafka_2.13-3.8.0.tgz
+
+
+-----------------------
+java -version
+sudo apt update
+sudo yum install openjdk-8-jdk
+java -version
+cd kafka_2.13-3.8.0
+
+Start Zoo-keeper:
+-------------------------------
+check if zookeeper is running
+ps aux | grep zookeeper
+start zookeeper
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+stop zookeeper
+
+Open another window to start kafka
+But first ssh to to your ec2 machine as done above
+
+
+Start Kafka-server:
+----------------------------------------
+Duplicate the session & enter in a new console --
+export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
+cd kafka_2.13-3.8.0
+bin/kafka-server-start.sh config/server.properties
+
+It is pointing to private server , change server.properties so that it can run in public IP 
+
+To do this , you can follow any of the 2 approaches shared belwo --
+Do a "sudo nano config/server.properties" - change ADVERTISED_LISTENERS to public ip of the EC2 instance
+
+
+Create the topic:
+-----------------------------
+Duplicate the session & enter in a new console --
+cd kafka_2.13-3.8.0
+bin/kafka-topics.sh --create --topic <topic_name> --bootstrap-server <EC2-IP-Address>:9092 --replication-factor 1 --partitions 1
+
+-- delete topic if needed
+bin/kafka-topics.sh --delete --topic <topic_name> --bootstrap-server <EC2-IP-Address>:9092
+
+-- list topics
+bin/kafka-topics.sh --list --bootstrap-server <EC2-IP-Address>:9092
+
+Start Producer:
+--------------------------
+bin/kafka-console-producer.sh --topic <topic_name> --bootstrap-server <EC2-IP-Address>:9092
+
+Start Consumer:
+
+-------------------------
+Duplicate the session & enter in a new console --
+cd kafka_2.12-3.8.0
+bin/kafka-console-consumer.sh --topic <topic_name> --bootstrap-server <EC2-IP-Address>:9092

@@ -1,0 +1,17 @@
+# Core Libraries
+kafka-python
+requests
+pyspark
+pandas
+numpy
+six
+python-dotenv
+# For Data Visualization (optional, for analysis)
+mplfinance
+yfinance
+
+# Other Libraries (if needed)
+tabulate
+polars
+boto3
+s3fs

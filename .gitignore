@@ -1,0 +1,22 @@
+# Ignore Python virtual environment folder
+venv/
+
+# Ignore docker-compose configuration file
+docker-compose.yml
+
+# Ignore Dockerfile
+Dockerfile
+
+# Ignore startup shell script
+startup.sh
+
+# Ignore sensitive access keys file
+stock-prices-accessKeys.csv
+
+kafka-stock-market.pem
+
+# Ignore the access keys for access to the S3 bucket
+stock-prices-accessKeys.csv
+
+# Ignore the environment variable
+.env
