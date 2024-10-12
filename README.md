@@ -1,6 +1,6 @@
 # Real-Time Stock Price Analysis with Kafka and AWS
 
-A brief description of your project.
+This project leverages Kafka and AWS services to provide a robust framework for real-time stock price analysis. It aims to enable users to extract, process, and visualize stock market data. By utilizing modern tools and technologies, the project streamlines the data ingestion and analysis pipeline for financial data analysts.
 
 ## Table of Contents
 
